@@ -1,0 +1,565 @@
+2024-04-20 21:48:01 HOSTNAME=d6ca1f758397
+2024-04-20 21:48:01 AWS_DEFAULT_REGION=us-east-1
+2024-04-20 21:48:01 PWD=/terraform
+2024-04-20 21:48:01 _=/usr/bin/env
+2024-04-20 21:48:01 HOME=/root
+2024-04-20 21:48:01 AWS_SECRET_ACCESS_KEY=test
+2024-04-20 21:48:01 SHLVL=1
+2024-04-20 21:48:01 AWS_ACCESS_KEY_ID=test
+2024-04-20 21:48:01 AWS_ENDPOINT_URL=http://localstack:4566
+2024-04-20 21:48:01 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2024-04-20 21:48:01 Waiting for LocalStack to be ready...
+2024-04-20 21:48:01 LocalStack is not reachable yet, waiting...
+2024-04-20 21:48:06 LocalStack is ready.
+2024-04-20 21:48:07 
+2024-04-20 21:48:07 Initializing the backend...
+2024-04-20 21:48:07 
+2024-04-20 21:48:07 Initializing provider plugins...
+2024-04-20 21:48:07 - Reusing previous version of hashicorp/aws from the dependency lock file
+2024-04-20 21:48:08 - Using previously-installed hashicorp/aws v5.46.0
+2024-04-20 21:48:08 
+2024-04-20 21:48:08 Terraform has been successfully initialized!
+2024-04-20 21:48:08 
+2024-04-20 21:48:08 You may now begin working with Terraform. Try running "terraform plan" to see
+2024-04-20 21:48:08 any changes that are required for your infrastructure. All Terraform commands
+2024-04-20 21:48:08 should now work.
+2024-04-20 21:48:08 
+2024-04-20 21:48:08 If you ever set or change modules or backend configuration for Terraform,
+2024-04-20 21:48:08 rerun this command to reinitialize your working directory. If you forget, other
+2024-04-20 21:48:08 commands will detect it and remind you to do so if necessary.
+2024-04-20 21:48:18 aws_iam_role.lambda_role: Refreshing state... [id=lambda-execution-role]
+2024-04-20 21:48:18 aws_vpc.my_vpc: Refreshing state... [id=vpc-92397ce9]
+2024-04-20 21:48:18 aws_api_gateway_rest_api.MyDemoAPI: Refreshing state... [id=oy3010x0w3]
+2024-04-20 21:48:19 aws_api_gateway_resource.docker_2nd_resource: Refreshing state... [id=wm2799hycn]
+2024-04-20 21:48:19 aws_api_gateway_resource.docker_1st_resource: Refreshing state... [id=016bcntx9c]
+2024-04-20 21:48:19 aws_api_gateway_method.docker_1st_method: Refreshing state... [id=agm-oy3010x0w3-016bcntx9c-GET]
+2024-04-20 21:48:19 aws_api_gateway_method.docker_2nd_method: Refreshing state... [id=agm-oy3010x0w3-wm2799hycn-GET]
+2024-04-20 21:48:19 aws_iam_policy_attachment.lambda_role_policy_attachment: Refreshing state... [id=lambda-role-policy-attachment]
+2024-04-20 21:48:19 aws_lambda_function.first: Refreshing state... [id=docker1st]
+2024-04-20 21:48:19 aws_lambda_function.second: Refreshing state... [id=docker2nd]
+2024-04-20 21:48:20 aws_api_gateway_integration.docker_1st_integration: Refreshing state... [id=agi-oy3010x0w3-016bcntx9c-GET]
+2024-04-20 21:48:20 aws_lambda_permission.docker_1st_permission: Refreshing state... [id=AllowExecutionFromAPIGateway]
+2024-04-20 21:48:20 aws_lambda_permission.docker_2nd_permission: Refreshing state... [id=AllowExecutionFromAPIGateway]
+2024-04-20 21:48:20 aws_api_gateway_integration.docker_2nd_integration: Refreshing state... [id=agi-oy3010x0w3-wm2799hycn-GET]
+2024-04-20 21:48:20 aws_api_gateway_deployment.MyDockerDemoDeployment: Refreshing state... [id=3x78clhxcu]
+2024-04-20 21:48:21 aws_subnet.my_subnet_public: Refreshing state... [id=subnet-7a46851c]
+2024-04-20 21:48:21 aws_subnet.my_subnet_private: Refreshing state... [id=subnet-97f35477]
+2024-04-20 21:48:21 aws_security_group.allow_web: Refreshing state... [id=sg-f4b3ac03acc4064d9]
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 Note: Objects have changed outside of Terraform
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 Terraform detected the following changes made outside of Terraform since the
+2024-04-20 21:48:21 last "terraform apply" which may have affected this plan:
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_deployment.MyDockerDemoDeployment has been deleted
+2024-04-20 21:48:21   - resource "aws_api_gateway_deployment" "MyDockerDemoDeployment" {
+2024-04-20 21:48:21         id            = "3x78clhxcu"
+2024-04-20 21:48:21       - invoke_url    = "https://oy3010x0w3.execute-api.us-east-1.amazonaws.com/test" -> null
+2024-04-20 21:48:21       - stage_name    = "test" -> null
+2024-04-20 21:48:21         # (4 unchanged attributes hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_method.docker_1st_method has been deleted
+2024-04-20 21:48:21   - resource "aws_api_gateway_method" "docker_1st_method" {
+2024-04-20 21:48:21       - http_method      = "GET" -> null
+2024-04-20 21:48:21         id               = "agm-oy3010x0w3-016bcntx9c-GET"
+2024-04-20 21:48:21         # (4 unchanged attributes hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_method.docker_2nd_method has been deleted
+2024-04-20 21:48:21   - resource "aws_api_gateway_method" "docker_2nd_method" {
+2024-04-20 21:48:21       - http_method      = "GET" -> null
+2024-04-20 21:48:21         id               = "agm-oy3010x0w3-wm2799hycn-GET"
+2024-04-20 21:48:21         # (4 unchanged attributes hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_resource.docker_1st_resource has been deleted
+2024-04-20 21:48:21   - resource "aws_api_gateway_resource" "docker_1st_resource" {
+2024-04-20 21:48:21       - id          = "016bcntx9c" -> null
+2024-04-20 21:48:21       - path_part   = "first" -> null
+2024-04-20 21:48:21         # (3 unchanged attributes hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_resource.docker_2nd_resource has been deleted
+2024-04-20 21:48:21   - resource "aws_api_gateway_resource" "docker_2nd_resource" {
+2024-04-20 21:48:21       - id          = "wm2799hycn" -> null
+2024-04-20 21:48:21       - path_part   = "second" -> null
+2024-04-20 21:48:21         # (3 unchanged attributes hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_rest_api.MyDemoAPI has been deleted
+2024-04-20 21:48:21   - resource "aws_api_gateway_rest_api" "MyDemoAPI" {
+2024-04-20 21:48:21       - execution_arn                = "arn:aws:execute-api:us-east-1::oy3010x0w3" -> null
+2024-04-20 21:48:21       - id                           = "oy3010x0w3" -> null
+2024-04-20 21:48:21         name                         = "MyDemoAPI"
+2024-04-20 21:48:21       - root_resource_id             = "9qlwe7ctc0" -> null
+2024-04-20 21:48:21         # (9 unchanged attributes hidden)
+2024-04-20 21:48:21 
+2024-04-20 21:48:21         # (1 unchanged block hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_iam_role.lambda_role has been deleted
+2024-04-20 21:48:21   - resource "aws_iam_role" "lambda_role" {
+2024-04-20 21:48:21       - arn                   = "arn:aws:iam::000000000000:role/lambda-execution-role" -> null
+2024-04-20 21:48:21         id                    = "lambda-execution-role"
+2024-04-20 21:48:21       - name                  = "lambda-execution-role" -> null
+2024-04-20 21:48:21         # (11 unchanged attributes hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_lambda_function.first has been deleted
+2024-04-20 21:48:21   - resource "aws_lambda_function" "first" {
+2024-04-20 21:48:21       - function_name                  = "docker1st" -> null
+2024-04-20 21:48:21         id                             = "docker1st"
+2024-04-20 21:48:21       - invoke_arn                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:docker1st/invocations" -> null
+2024-04-20 21:48:21         # (24 unchanged attributes hidden)
+2024-04-20 21:48:21 
+2024-04-20 21:48:21         # (3 unchanged blocks hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_lambda_function.second has been deleted
+2024-04-20 21:48:21   - resource "aws_lambda_function" "second" {
+2024-04-20 21:48:21       - function_name                  = "docker2nd" -> null
+2024-04-20 21:48:21         id                             = "docker2nd"
+2024-04-20 21:48:21       - invoke_arn                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:docker2nd/invocations" -> null
+2024-04-20 21:48:21         # (24 unchanged attributes hidden)
+2024-04-20 21:48:21 
+2024-04-20 21:48:21         # (3 unchanged blocks hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_vpc.my_vpc has been deleted
+2024-04-20 21:48:21   - resource "aws_vpc" "my_vpc" {
+2024-04-20 21:48:21       - id                                   = "vpc-92397ce9" -> null
+2024-04-20 21:48:21         tags                                 = {
+2024-04-20 21:48:21             "Name" = "my_vpc"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21         # (19 unchanged attributes hidden)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 Unless you have made equivalent changes to your configuration, or ignored the
+2024-04-20 21:48:21 relevant attributes using ignore_changes, the following plan may include
+2024-04-20 21:48:21 actions to undo or respond to these changes.
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 ─────────────────────────────────────────────────────────────────────────────
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 Terraform used the selected providers to generate the following execution
+2024-04-20 21:48:21 plan. Resource actions are indicated with the following symbols:
+2024-04-20 21:48:21   + create
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 Terraform will perform the following actions:
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_deployment.MyDockerDemoDeployment will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_deployment" "MyDockerDemoDeployment" {
+2024-04-20 21:48:21       + created_date  = (known after apply)
+2024-04-20 21:48:21       + execution_arn = (known after apply)
+2024-04-20 21:48:21       + id            = (known after apply)
+2024-04-20 21:48:21       + invoke_url    = (known after apply)
+2024-04-20 21:48:21       + rest_api_id   = (known after apply)
+2024-04-20 21:48:21       + stage_name    = "test"
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_integration.docker_1st_integration will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_integration" "docker_1st_integration" {
+2024-04-20 21:48:21       + cache_namespace         = (known after apply)
+2024-04-20 21:48:21       + connection_type         = "INTERNET"
+2024-04-20 21:48:21       + http_method             = "GET"
+2024-04-20 21:48:21       + id                      = (known after apply)
+2024-04-20 21:48:21       + integration_http_method = "POST"
+2024-04-20 21:48:21       + passthrough_behavior    = (known after apply)
+2024-04-20 21:48:21       + resource_id             = (known after apply)
+2024-04-20 21:48:21       + rest_api_id             = (known after apply)
+2024-04-20 21:48:21       + timeout_milliseconds    = 29000
+2024-04-20 21:48:21       + type                    = "AWS_PROXY"
+2024-04-20 21:48:21       + uri                     = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_integration.docker_2nd_integration will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_integration" "docker_2nd_integration" {
+2024-04-20 21:48:21       + cache_namespace         = (known after apply)
+2024-04-20 21:48:21       + connection_type         = "INTERNET"
+2024-04-20 21:48:21       + http_method             = "GET"
+2024-04-20 21:48:21       + id                      = (known after apply)
+2024-04-20 21:48:21       + integration_http_method = "POST"
+2024-04-20 21:48:21       + passthrough_behavior    = (known after apply)
+2024-04-20 21:48:21       + resource_id             = (known after apply)
+2024-04-20 21:48:21       + rest_api_id             = (known after apply)
+2024-04-20 21:48:21       + timeout_milliseconds    = 29000
+2024-04-20 21:48:21       + type                    = "AWS_PROXY"
+2024-04-20 21:48:21       + uri                     = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_method.docker_1st_method will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_method" "docker_1st_method" {
+2024-04-20 21:48:21       + api_key_required = false
+2024-04-20 21:48:21       + authorization    = "NONE"
+2024-04-20 21:48:21       + http_method      = "GET"
+2024-04-20 21:48:21       + id               = (known after apply)
+2024-04-20 21:48:21       + resource_id      = (known after apply)
+2024-04-20 21:48:21       + rest_api_id      = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_method.docker_2nd_method will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_method" "docker_2nd_method" {
+2024-04-20 21:48:21       + api_key_required = false
+2024-04-20 21:48:21       + authorization    = "NONE"
+2024-04-20 21:48:21       + http_method      = "GET"
+2024-04-20 21:48:21       + id               = (known after apply)
+2024-04-20 21:48:21       + resource_id      = (known after apply)
+2024-04-20 21:48:21       + rest_api_id      = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_resource.docker_1st_resource will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_resource" "docker_1st_resource" {
+2024-04-20 21:48:21       + id          = (known after apply)
+2024-04-20 21:48:21       + parent_id   = (known after apply)
+2024-04-20 21:48:21       + path        = (known after apply)
+2024-04-20 21:48:21       + path_part   = "first"
+2024-04-20 21:48:21       + rest_api_id = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_resource.docker_2nd_resource will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_resource" "docker_2nd_resource" {
+2024-04-20 21:48:21       + id          = (known after apply)
+2024-04-20 21:48:21       + parent_id   = (known after apply)
+2024-04-20 21:48:21       + path        = (known after apply)
+2024-04-20 21:48:21       + path_part   = "second"
+2024-04-20 21:48:21       + rest_api_id = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_api_gateway_rest_api.MyDemoAPI will be created
+2024-04-20 21:48:21   + resource "aws_api_gateway_rest_api" "MyDemoAPI" {
+2024-04-20 21:48:21       + api_key_source               = (known after apply)
+2024-04-20 21:48:21       + arn                          = (known after apply)
+2024-04-20 21:48:21       + binary_media_types           = (known after apply)
+2024-04-20 21:48:21       + created_date                 = (known after apply)
+2024-04-20 21:48:21       + description                  = "Example API"
+2024-04-20 21:48:21       + disable_execute_api_endpoint = (known after apply)
+2024-04-20 21:48:21       + execution_arn                = (known after apply)
+2024-04-20 21:48:21       + id                           = (known after apply)
+2024-04-20 21:48:21       + minimum_compression_size     = (known after apply)
+2024-04-20 21:48:21       + name                         = "MyDemoAPI"
+2024-04-20 21:48:21       + policy                       = (known after apply)
+2024-04-20 21:48:21       + root_resource_id             = (known after apply)
+2024-04-20 21:48:21       + tags_all                     = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_iam_policy_attachment.lambda_role_policy_attachment will be created
+2024-04-20 21:48:21   + resource "aws_iam_policy_attachment" "lambda_role_policy_attachment" {
+2024-04-20 21:48:21       + id         = (known after apply)
+2024-04-20 21:48:21       + name       = "lambda-role-policy-attachment"
+2024-04-20 21:48:21       + policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+2024-04-20 21:48:21       + roles      = [
+2024-04-20 21:48:21           + "lambda-execution-role",
+2024-04-20 21:48:21         ]
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_iam_role.lambda_role will be created
+2024-04-20 21:48:21   + resource "aws_iam_role" "lambda_role" {
+2024-04-20 21:48:21       + arn                   = (known after apply)
+2024-04-20 21:48:21       + assume_role_policy    = jsonencode(
+2024-04-20 21:48:21             {
+2024-04-20 21:48:21               + Statement = [
+2024-04-20 21:48:21                   + {
+2024-04-20 21:48:21                       + Action    = "sts:AssumeRole"
+2024-04-20 21:48:21                       + Effect    = "Allow"
+2024-04-20 21:48:21                       + Principal = {
+2024-04-20 21:48:21                           + Service = "lambda.amazonaws.com"
+2024-04-20 21:48:21                         }
+2024-04-20 21:48:21                     },
+2024-04-20 21:48:21                 ]
+2024-04-20 21:48:21               + Version   = "2012-10-17"
+2024-04-20 21:48:21             }
+2024-04-20 21:48:21         )
+2024-04-20 21:48:21       + create_date           = (known after apply)
+2024-04-20 21:48:21       + force_detach_policies = false
+2024-04-20 21:48:21       + id                    = (known after apply)
+2024-04-20 21:48:21       + managed_policy_arns   = (known after apply)
+2024-04-20 21:48:21       + max_session_duration  = 3600
+2024-04-20 21:48:21       + name                  = "lambda-execution-role"
+2024-04-20 21:48:21       + name_prefix           = (known after apply)
+2024-04-20 21:48:21       + path                  = "/"
+2024-04-20 21:48:21       + tags_all              = (known after apply)
+2024-04-20 21:48:21       + unique_id             = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_lambda_function.first will be created
+2024-04-20 21:48:21   + resource "aws_lambda_function" "first" {
+2024-04-20 21:48:21       + architectures                  = (known after apply)
+2024-04-20 21:48:21       + arn                            = (known after apply)
+2024-04-20 21:48:21       + function_name                  = "docker1st"
+2024-04-20 21:48:21       + handler                        = "lambda_function.lambda_handler"
+2024-04-20 21:48:21       + id                             = (known after apply)
+2024-04-20 21:48:21       + image_uri                      = "docker.io/jonathanpick/first-lambda:v1"
+2024-04-20 21:48:21       + invoke_arn                     = (known after apply)
+2024-04-20 21:48:21       + last_modified                  = (known after apply)
+2024-04-20 21:48:21       + memory_size                    = 128
+2024-04-20 21:48:21       + package_type                   = "Image"
+2024-04-20 21:48:21       + publish                        = false
+2024-04-20 21:48:21       + qualified_arn                  = (known after apply)
+2024-04-20 21:48:21       + qualified_invoke_arn           = (known after apply)
+2024-04-20 21:48:21       + reserved_concurrent_executions = -1
+2024-04-20 21:48:21       + role                           = (known after apply)
+2024-04-20 21:48:21       + signing_job_arn                = (known after apply)
+2024-04-20 21:48:21       + signing_profile_version_arn    = (known after apply)
+2024-04-20 21:48:21       + skip_destroy                   = false
+2024-04-20 21:48:21       + source_code_hash               = (known after apply)
+2024-04-20 21:48:21       + source_code_size               = (known after apply)
+2024-04-20 21:48:21       + tags_all                       = (known after apply)
+2024-04-20 21:48:21       + timeout                        = 3
+2024-04-20 21:48:21       + version                        = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_lambda_function.second will be created
+2024-04-20 21:48:21   + resource "aws_lambda_function" "second" {
+2024-04-20 21:48:21       + architectures                  = (known after apply)
+2024-04-20 21:48:21       + arn                            = (known after apply)
+2024-04-20 21:48:21       + function_name                  = "docker2nd"
+2024-04-20 21:48:21       + handler                        = "lambda_function.lambda_handler"
+2024-04-20 21:48:21       + id                             = (known after apply)
+2024-04-20 21:48:21       + image_uri                      = "docker.io/jonathanpick/second-lambda:v1"
+2024-04-20 21:48:21       + invoke_arn                     = (known after apply)
+2024-04-20 21:48:21       + last_modified                  = (known after apply)
+2024-04-20 21:48:21       + memory_size                    = 128
+2024-04-20 21:48:21       + package_type                   = "Image"
+2024-04-20 21:48:21       + publish                        = false
+2024-04-20 21:48:21       + qualified_arn                  = (known after apply)
+2024-04-20 21:48:21       + qualified_invoke_arn           = (known after apply)
+2024-04-20 21:48:21       + reserved_concurrent_executions = -1
+2024-04-20 21:48:21       + role                           = (known after apply)
+2024-04-20 21:48:21       + signing_job_arn                = (known after apply)
+2024-04-20 21:48:21       + signing_profile_version_arn    = (known after apply)
+2024-04-20 21:48:21       + skip_destroy                   = false
+2024-04-20 21:48:21       + source_code_hash               = (known after apply)
+2024-04-20 21:48:21       + source_code_size               = (known after apply)
+2024-04-20 21:48:21       + tags_all                       = (known after apply)
+2024-04-20 21:48:21       + timeout                        = 3
+2024-04-20 21:48:21       + version                        = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_lambda_permission.docker_1st_permission will be created
+2024-04-20 21:48:21   + resource "aws_lambda_permission" "docker_1st_permission" {
+2024-04-20 21:48:21       + action              = "lambda:InvokeFunction"
+2024-04-20 21:48:21       + function_name       = "docker1st"
+2024-04-20 21:48:21       + id                  = (known after apply)
+2024-04-20 21:48:21       + principal           = "apigateway.amazonaws.com"
+2024-04-20 21:48:21       + source_arn          = (known after apply)
+2024-04-20 21:48:21       + statement_id        = "AllowExecutionFromAPIGateway"
+2024-04-20 21:48:21       + statement_id_prefix = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_lambda_permission.docker_2nd_permission will be created
+2024-04-20 21:48:21   + resource "aws_lambda_permission" "docker_2nd_permission" {
+2024-04-20 21:48:21       + action              = "lambda:InvokeFunction"
+2024-04-20 21:48:21       + function_name       = "docker2nd"
+2024-04-20 21:48:21       + id                  = (known after apply)
+2024-04-20 21:48:21       + principal           = "apigateway.amazonaws.com"
+2024-04-20 21:48:21       + source_arn          = (known after apply)
+2024-04-20 21:48:21       + statement_id        = "AllowExecutionFromAPIGateway"
+2024-04-20 21:48:21       + statement_id_prefix = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_security_group.allow_web will be created
+2024-04-20 21:48:21   + resource "aws_security_group" "allow_web" {
+2024-04-20 21:48:21       + arn                    = (known after apply)
+2024-04-20 21:48:21       + description            = "Allow web traffic"
+2024-04-20 21:48:21       + egress                 = [
+2024-04-20 21:48:21           + {
+2024-04-20 21:48:21               + cidr_blocks      = [
+2024-04-20 21:48:21                   + "0.0.0.0/0",
+2024-04-20 21:48:21                 ]
+2024-04-20 21:48:21               + from_port        = 0
+2024-04-20 21:48:21               + ipv6_cidr_blocks = []
+2024-04-20 21:48:21               + prefix_list_ids  = []
+2024-04-20 21:48:21               + protocol         = "-1"
+2024-04-20 21:48:21               + security_groups  = []
+2024-04-20 21:48:21               + self             = false
+2024-04-20 21:48:21               + to_port          = 0
+2024-04-20 21:48:21                 # (1 unchanged attribute hidden)
+2024-04-20 21:48:21             },
+2024-04-20 21:48:21         ]
+2024-04-20 21:48:21       + id                     = (known after apply)
+2024-04-20 21:48:21       + ingress                = [
+2024-04-20 21:48:21           + {
+2024-04-20 21:48:21               + cidr_blocks      = [
+2024-04-20 21:48:21                   + "0.0.0.0/0",
+2024-04-20 21:48:21                 ]
+2024-04-20 21:48:21               + from_port        = 80
+2024-04-20 21:48:21               + ipv6_cidr_blocks = []
+2024-04-20 21:48:21               + prefix_list_ids  = []
+2024-04-20 21:48:21               + protocol         = "tcp"
+2024-04-20 21:48:21               + security_groups  = []
+2024-04-20 21:48:21               + self             = false
+2024-04-20 21:48:21               + to_port          = 80
+2024-04-20 21:48:21                 # (1 unchanged attribute hidden)
+2024-04-20 21:48:21             },
+2024-04-20 21:48:21         ]
+2024-04-20 21:48:21       + name                   = "allow_web_traffic"
+2024-04-20 21:48:21       + name_prefix            = (known after apply)
+2024-04-20 21:48:21       + owner_id               = (known after apply)
+2024-04-20 21:48:21       + revoke_rules_on_delete = false
+2024-04-20 21:48:21       + tags                   = {
+2024-04-20 21:48:21           + "Name" = "allow_web_traffic"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21       + tags_all               = {
+2024-04-20 21:48:21           + "Name" = "allow_web_traffic"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21       + vpc_id                 = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_subnet.my_subnet_private will be created
+2024-04-20 21:48:21   + resource "aws_subnet" "my_subnet_private" {
+2024-04-20 21:48:21       + arn                                            = (known after apply)
+2024-04-20 21:48:21       + assign_ipv6_address_on_creation                = false
+2024-04-20 21:48:21       + availability_zone                              = "us-east-1b"
+2024-04-20 21:48:21       + availability_zone_id                           = (known after apply)
+2024-04-20 21:48:21       + cidr_block                                     = "10.0.2.0/24"
+2024-04-20 21:48:21       + enable_dns64                                   = false
+2024-04-20 21:48:21       + enable_resource_name_dns_a_record_on_launch    = false
+2024-04-20 21:48:21       + enable_resource_name_dns_aaaa_record_on_launch = false
+2024-04-20 21:48:21       + id                                             = (known after apply)
+2024-04-20 21:48:21       + ipv6_cidr_block_association_id                 = (known after apply)
+2024-04-20 21:48:21       + ipv6_native                                    = false
+2024-04-20 21:48:21       + map_public_ip_on_launch                        = false
+2024-04-20 21:48:21       + owner_id                                       = (known after apply)
+2024-04-20 21:48:21       + private_dns_hostname_type_on_launch            = (known after apply)
+2024-04-20 21:48:21       + tags                                           = {
+2024-04-20 21:48:21           + "Name" = "my_subnet_private"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21       + tags_all                                       = {
+2024-04-20 21:48:21           + "Name" = "my_subnet_private"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21       + vpc_id                                         = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_subnet.my_subnet_public will be created
+2024-04-20 21:48:21   + resource "aws_subnet" "my_subnet_public" {
+2024-04-20 21:48:21       + arn                                            = (known after apply)
+2024-04-20 21:48:21       + assign_ipv6_address_on_creation                = false
+2024-04-20 21:48:21       + availability_zone                              = "us-east-1a"
+2024-04-20 21:48:21       + availability_zone_id                           = (known after apply)
+2024-04-20 21:48:21       + cidr_block                                     = "10.0.1.0/24"
+2024-04-20 21:48:21       + enable_dns64                                   = false
+2024-04-20 21:48:21       + enable_resource_name_dns_a_record_on_launch    = false
+2024-04-20 21:48:21       + enable_resource_name_dns_aaaa_record_on_launch = false
+2024-04-20 21:48:21       + id                                             = (known after apply)
+2024-04-20 21:48:21       + ipv6_cidr_block_association_id                 = (known after apply)
+2024-04-20 21:48:21       + ipv6_native                                    = false
+2024-04-20 21:48:21       + map_public_ip_on_launch                        = true
+2024-04-20 21:48:21       + owner_id                                       = (known after apply)
+2024-04-20 21:48:21       + private_dns_hostname_type_on_launch            = (known after apply)
+2024-04-20 21:48:21       + tags                                           = {
+2024-04-20 21:48:21           + "Name" = "my_subnet_public"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21       + tags_all                                       = {
+2024-04-20 21:48:21           + "Name" = "my_subnet_public"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21       + vpc_id                                         = (known after apply)
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21   # aws_vpc.my_vpc will be created
+2024-04-20 21:48:21   + resource "aws_vpc" "my_vpc" {
+2024-04-20 21:48:21       + arn                                  = (known after apply)
+2024-04-20 21:48:21       + cidr_block                           = "10.0.0.0/16"
+2024-04-20 21:48:21       + default_network_acl_id               = (known after apply)
+2024-04-20 21:48:21       + default_route_table_id               = (known after apply)
+2024-04-20 21:48:21       + default_security_group_id            = (known after apply)
+2024-04-20 21:48:21       + dhcp_options_id                      = (known after apply)
+2024-04-20 21:48:21       + enable_dns_hostnames                 = true
+2024-04-20 21:48:21       + enable_dns_support                   = true
+2024-04-20 21:48:21       + enable_network_address_usage_metrics = (known after apply)
+2024-04-20 21:48:21       + id                                   = (known after apply)
+2024-04-20 21:48:21       + instance_tenancy                     = "default"
+2024-04-20 21:48:21       + ipv6_association_id                  = (known after apply)
+2024-04-20 21:48:21       + ipv6_cidr_block                      = (known after apply)
+2024-04-20 21:48:21       + ipv6_cidr_block_network_border_group = (known after apply)
+2024-04-20 21:48:21       + main_route_table_id                  = (known after apply)
+2024-04-20 21:48:21       + owner_id                             = (known after apply)
+2024-04-20 21:48:21       + tags                                 = {
+2024-04-20 21:48:21           + "Name" = "my_vpc"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21       + tags_all                             = {
+2024-04-20 21:48:21           + "Name" = "my_vpc"
+2024-04-20 21:48:21         }
+2024-04-20 21:48:21     }
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 Plan: 18 to add, 0 to change, 0 to destroy.
+2024-04-20 21:48:21 
+2024-04-20 21:48:21 Changes to Outputs:
+2024-04-20 21:48:21   ~ api_invoke_url    = "https://oy3010x0w3.execute-api.us-east-1.amazonaws.com/test" -> (known after apply)
+2024-04-20 21:48:21   ~ first_lambda_url  = "http://localstack:4566/restapis/oy3010x0w3/test/_user_request_/first" -> (known after apply)
+2024-04-20 21:48:21   ~ rest_api_id       = "oy3010x0w3" -> (known after apply)
+2024-04-20 21:48:21   ~ second_lambda_url = "http://localstack:4566/restapis/oy3010x0w3/test/_user_request_/second" -> (known after apply)
+2024-04-20 21:48:25 aws_api_gateway_rest_api.MyDemoAPI: Creating...
+2024-04-20 21:48:25 aws_iam_role.lambda_role: Creating...
+2024-04-20 21:48:25 aws_vpc.my_vpc: Creating...
+2024-04-20 21:48:25 aws_iam_role.lambda_role: Creation complete after 0s [id=lambda-execution-role]
+2024-04-20 21:48:25 aws_iam_policy_attachment.lambda_role_policy_attachment: Creating...
+2024-04-20 21:48:25 aws_lambda_function.first: Creating...
+2024-04-20 21:48:25 aws_lambda_function.second: Creating...
+2024-04-20 21:48:26 aws_iam_policy_attachment.lambda_role_policy_attachment: Creation complete after 0s [id=lambda-role-policy-attachment]
+2024-04-20 21:48:26 aws_api_gateway_rest_api.MyDemoAPI: Creation complete after 0s [id=ds4lh6g4g4]
+2024-04-20 21:48:26 aws_api_gateway_resource.docker_2nd_resource: Creating...
+2024-04-20 21:48:26 aws_api_gateway_resource.docker_1st_resource: Creating...
+2024-04-20 21:48:26 aws_api_gateway_resource.docker_2nd_resource: Creation complete after 0s [id=0547i261zw]
+2024-04-20 21:48:26 aws_api_gateway_resource.docker_1st_resource: Creation complete after 0s [id=53tbb7kc7o]
+2024-04-20 21:48:26 aws_api_gateway_method.docker_1st_method: Creating...
+2024-04-20 21:48:26 aws_api_gateway_method.docker_2nd_method: Creating...
+2024-04-20 21:48:26 aws_api_gateway_method.docker_1st_method: Creation complete after 0s [id=agm-ds4lh6g4g4-53tbb7kc7o-GET]
+2024-04-20 21:48:26 aws_api_gateway_method.docker_2nd_method: Creation complete after 0s [id=agm-ds4lh6g4g4-0547i261zw-GET]
+2024-04-20 21:48:33 aws_lambda_function.second: Creation complete after 7s [id=docker2nd]
+2024-04-20 21:48:33 aws_api_gateway_integration.docker_2nd_integration: Creating...
+2024-04-20 21:48:33 aws_lambda_permission.docker_2nd_permission: Creating...
+2024-04-20 21:48:33 aws_lambda_permission.docker_2nd_permission: Creation complete after 0s [id=AllowExecutionFromAPIGateway]
+2024-04-20 21:48:33 aws_api_gateway_integration.docker_2nd_integration: Creation complete after 0s [id=agi-ds4lh6g4g4-0547i261zw-GET]
+2024-04-20 21:48:35 aws_vpc.my_vpc: Still creating... [10s elapsed]
+2024-04-20 21:48:35 aws_lambda_function.first: Still creating... [10s elapsed]
+2024-04-20 21:48:35 aws_lambda_function.first: Creation complete after 10s [id=docker1st]
+2024-04-20 21:48:35 aws_api_gateway_integration.docker_1st_integration: Creating...
+2024-04-20 21:48:35 aws_lambda_permission.docker_1st_permission: Creating...
+2024-04-20 21:48:35 aws_vpc.my_vpc: Creation complete after 10s [id=vpc-bcbed0f0]
+2024-04-20 21:48:35 aws_subnet.my_subnet_public: Creating...
+2024-04-20 21:48:35 aws_subnet.my_subnet_private: Creating...
+2024-04-20 21:48:35 aws_security_group.allow_web: Creating...
+2024-04-20 21:48:35 aws_lambda_permission.docker_1st_permission: Creation complete after 0s [id=AllowExecutionFromAPIGateway]
+2024-04-20 21:48:35 aws_api_gateway_integration.docker_1st_integration: Creation complete after 0s [id=agi-ds4lh6g4g4-53tbb7kc7o-GET]
+2024-04-20 21:48:35 aws_api_gateway_deployment.MyDockerDemoDeployment: Creating...
+2024-04-20 21:48:36 aws_api_gateway_deployment.MyDockerDemoDeployment: Creation complete after 0s [id=fl3bwzojoh]
+2024-04-20 21:48:36 aws_subnet.my_subnet_private: Creation complete after 0s [id=subnet-8714d8e0]
+2024-04-20 21:48:36 aws_security_group.allow_web: Creation complete after 0s [id=sg-a84aa83a59437fa19]
+2024-04-20 21:48:45 aws_subnet.my_subnet_public: Still creating... [10s elapsed]
+2024-04-20 21:48:46 aws_subnet.my_subnet_public: Creation complete after 10s [id=subnet-3dfe3dfc]
+2024-04-20 21:48:46 ╷
+2024-04-20 21:48:46 │ Warning: AWS account ID not found for provider
+2024-04-20 21:48:46 │ 
+2024-04-20 21:48:46 │   with provider["registry.terraform.io/hashicorp/aws"],
+2024-04-20 21:48:46 │   on provider.tf line 1, in provider "aws":
+2024-04-20 21:48:46 │    1: provider "aws" {
+2024-04-20 21:48:46 │ 
+2024-04-20 21:48:46 │ See
+2024-04-20 21:48:46 │ https://registry.terraform.io/providers/hashicorp/aws/latest/docs#skip_requesting_account_id
+2024-04-20 21:48:46 │ for implications.
+2024-04-20 21:48:46 │ 
+2024-04-20 21:48:46 │ (and one more similar warning elsewhere)
+2024-04-20 21:48:46 ╵
+2024-04-20 21:48:46 
+2024-04-20 21:48:46 Apply complete! Resources: 18 added, 0 changed, 0 destroyed.
+2024-04-20 21:48:46 
+2024-04-20 21:48:46 Outputs:
+2024-04-20 21:48:46 
+2024-04-20 21:48:46 api_invoke_url = "https://ds4lh6g4g4.execute-api.us-east-1.amazonaws.com/test"
+2024-04-20 21:48:46 first_lambda_url = "http://localstack:4566/restapis/ds4lh6g4g4/test/_user_request_/first"
+2024-04-20 21:48:46 rest_api_id = "ds4lh6g4g4"
+2024-04-20 21:48:46 second_lambda_url = "http://localstack:4566/restapis/ds4lh6g4g4/test/_user_request_/second"
+2024-04-20 21:48:46 Terraform apply successful
+2024-04-20 21:48:46 >>> extracting first lambda URL from terraform output
+2024-04-20 21:48:46 >>> invoking first lambda:
+2024-04-20 21:48:46   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2024-04-20 21:48:46                                  Dload  Upload   Total   Spent    Left  Speed
+100    80  100    80    0     0     82      0 --:--:-- --:--:-- --:--:--    82
+2024-04-20 21:48:47 The Authorization header token is the epoch value of 01.01.2000 12:00:00 AM GMT.>>> extracting second lambda URL from terraform output
+2024-04-20 21:48:48 >>> running second lambda with 'Authorization: 946684800' header
+2024-04-20 21:48:48   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2024-04-20 21:48:48                                  Dload  Upload   Total   Spent    Left  Speed
+100    83  100    83    0     0    105      0 --:--:-- --:--:-- --:--:--   105
+2024-04-20 21:48:49 >>> extracting the value of the secret from the second lambda's response
+2024-04-20 21:48:49 >>> extracted secret: 'Null.'

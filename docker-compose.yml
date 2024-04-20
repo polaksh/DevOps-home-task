@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack-pro
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+      - LOCALSTACK_AUTH_TOKEN="ls-sAPIWuqu-biPo-NEne-3491-dozAVIqub09e"
+      - DEBUG=${DEBUG:-0}
+      - LAMBDA_RUNTIME_ENVIRONMENT_TIMEOUT=60
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - my_network
+
+  terraform:
+    build:
+      context: .
+      dockerfile: ./automation/Dockerfile  # Path to the local Dockerfile
+    container_name: terraform
+    volumes:
+      - ./:/terraform
+    # entrypoint: /terraform/apply.sh
+    environment:
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ENDPOINT_URL=http://localstack:4566
+    depends_on:
+      - localstack
+    entrypoint: /bin/bash
+    command: 
+      - -c
+      - |
+        chmod +x automation/apply.sh &&
+        ./automation/apply.sh
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
