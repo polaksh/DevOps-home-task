@@ -9,7 +9,7 @@ services:
       - "127.0.0.1:4510-4559:4510-4559"  # external services port range
     environment:
       # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
-      - LOCALSTACK_AUTH_TOKEN="ls-sAPIWuqu-biPo-NEne-3491-dozAVIqub09e"
+      - LOCALSTACK_AUTH_TOKEN="ls-fINUYaRE-2091-nOpi-4883-NAdUQasi1c02"
       - DEBUG=${DEBUG:-0}
       - LAMBDA_RUNTIME_ENVIRONMENT_TIMEOUT=60
     volumes:
